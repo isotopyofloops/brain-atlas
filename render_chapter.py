@@ -97,6 +97,9 @@ CHAPTERS = {
             "anterior":       {"azimuth": 0,   "elevation": 5,  "label": "Anterior"},
             "deep_ghosted":   {"azimuth": 70,  "elevation": 20, "label": "Deep structures (ghosted)"},
             "deep_only":      {"azimuth": 70,  "elevation": 20, "label": "Deep structures (isolated)", "hide_dim": True},
+            "coronal_section":{"azimuth": 0,   "elevation": 10, "label": "Coronal section (thalamus level)", "section_depth": 0.45},
+            "sagittal_section":{"azimuth": 90,  "elevation": 5,  "label": "Sagittal section (midsagittal, thalamus)", "section_depth": 0.48},
+            "superior_section":{"azimuth": 0,   "elevation": 89, "label": "Superior section (corpus callosum)", "section_depth": 0.25},
         }
     },
     "ch14": {
@@ -114,6 +117,7 @@ CHAPTERS = {
 }
 
 chapter = sys.argv[sys.argv.index("--chapter") + 1] if "--chapter" in sys.argv else "ch10"
+only_view = sys.argv[sys.argv.index("--view") + 1] if "--view" in sys.argv else None
 cfg = CHAPTERS[chapter]
 highlight_set = set(cfg["highlight"])
 
@@ -235,9 +239,22 @@ scene.camera = cam_obj
 
 dist = span * 2
 for view_name, view_cfg in cfg["views"].items():
+    if only_view and view_name != only_view:
+        continue
     hide_dim = view_cfg.get("hide_dim", False)
+    section_depth = view_cfg.get("section_depth", None)
+
     for obj in dim_objects:
         obj.hide_render = hide_dim
+        if section_depth is not None and not hide_dim:
+            mat = obj.data.materials[0]
+            bsdf = mat.node_tree.nodes["Principled BSDF"]
+            bsdf.inputs["Alpha"].default_value = 0.35
+
+    if section_depth is not None:
+        cam_data.clip_start = span * (1.5 + section_depth)
+    else:
+        cam_data.clip_start = 0.1
 
     az = math.radians(view_cfg["azimuth"])
     el = math.radians(view_cfg["elevation"])
@@ -255,5 +272,13 @@ for view_name, view_cfg in cfg["views"].items():
     scene.render.filepath = outpath
     bpy.ops.render.render(write_still=True)
     print(f"Rendered: {chapter}_{view_name} -> {outpath}")
+
+    if section_depth is not None:
+        cam_data.clip_start = 0.1
+        for obj in dim_objects:
+            if not hide_dim:
+                mat = obj.data.materials[0]
+                bsdf = mat.node_tree.nodes["Principled BSDF"]
+                bsdf.inputs["Alpha"].default_value = DIM_ALPHA
 
 print("Done!")
