@@ -86,6 +86,18 @@ CHAPTERS = {
             "deep_only":      {"azimuth": 70,  "elevation": 20, "label": "Deep structures (isolated)", "hide_dim": True},
             "lateral_left":   {"azimuth": -90, "elevation": 5,  "label": "Lateral (left)"},
         }
+    },
+    "ch14": {
+        "name": "Attention and Higher Cognition",
+        "highlight": ["superior_parietal_lobule", "angular_gyrus", "supramarginal_gyrus", "superior_frontal_gyrus", "middle_frontal_gyrus", "inferior_frontal_gyrus", "orbital_gyrus", "precentral_gyrus", "cingulate_gyrus", "thalamus", "superior_colliculus", "occipital_lobe", "superior_temporal_gyrus", "fusiform_gyrus", "insula"],
+        "views": {
+            "lateral_left":   {"azimuth": -90, "elevation": 5,  "label": "Lateral (left)"},
+            "lateral_right":  {"azimuth": 90,  "elevation": 5,  "label": "Lateral (right)"},
+            "midsagittal":    {"azimuth": 90,  "elevation": 0,  "label": "Midsagittal"},
+            "anterior":       {"azimuth": 0,   "elevation": 5,  "label": "Anterior"},
+            "deep_ghosted":   {"azimuth": 70,  "elevation": 20, "label": "Deep structures (ghosted)"},
+            "deep_only":      {"azimuth": 70,  "elevation": 20, "label": "Deep structures (isolated)", "hide_dim": True},
+        }
     }
 }
 
