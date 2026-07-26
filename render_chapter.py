@@ -87,6 +87,18 @@ CHAPTERS = {
             "lateral_left":   {"azimuth": -90, "elevation": 5,  "label": "Lateral (left)"},
         }
     },
+    "ch15": {
+        "name": "Language and Lateralization",
+        "highlight": ["inferior_frontal_gyrus", "superior_temporal_gyrus", "angular_gyrus", "supramarginal_gyrus", "corpus_callosum", "fusiform_gyrus", "precentral_gyrus", "postcentral_gyrus", "insula", "middle_temporal_gyrus", "cingulate_gyrus", "superior_frontal_gyrus", "cerebellum", "thalamus", "occipital_lobe"],
+        "views": {
+            "lateral_left":   {"azimuth": -90, "elevation": 5,  "label": "Lateral (left)"},
+            "lateral_right":  {"azimuth": 90,  "elevation": 5,  "label": "Lateral (right)"},
+            "midsagittal":    {"azimuth": 90,  "elevation": 0,  "label": "Midsagittal"},
+            "anterior":       {"azimuth": 0,   "elevation": 5,  "label": "Anterior"},
+            "deep_ghosted":   {"azimuth": 70,  "elevation": 20, "label": "Deep structures (ghosted)"},
+            "deep_only":      {"azimuth": 70,  "elevation": 20, "label": "Deep structures (isolated)", "hide_dim": True},
+        }
+    },
     "ch14": {
         "name": "Attention and Higher Cognition",
         "highlight": ["superior_parietal_lobule", "angular_gyrus", "supramarginal_gyrus", "superior_frontal_gyrus", "middle_frontal_gyrus", "inferior_frontal_gyrus", "orbital_gyrus", "precentral_gyrus", "cingulate_gyrus", "thalamus", "superior_colliculus", "occipital_lobe", "superior_temporal_gyrus", "fusiform_gyrus", "insula"],
