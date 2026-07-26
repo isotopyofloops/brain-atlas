@@ -74,6 +74,18 @@ CHAPTERS = {
             "deep_ghosted":   {"azimuth": 70,  "elevation": 20, "label": "Deep structures (ghosted)"},
             "deep_only":      {"azimuth": 70,  "elevation": 20, "label": "Deep structures (isolated)", "hide_dim": True},
         }
+    },
+    "ch13": {
+        "name": "Memory and Learning",
+        "highlight": ["hippocampus", "amygdala", "thalamus", "mammillary_body", "parahippocampal_gyrus", "fornix", "fornix_commissure", "cerebellum", "caudate_nucleus", "putamen", "globus_pallidus", "cingulate_gyrus"],
+        "views": {
+            "midsagittal":    {"azimuth": 90,  "elevation": 0,  "label": "Midsagittal"},
+            "anterior":       {"azimuth": 0,   "elevation": 5,  "label": "Anterior"},
+            "ventral":        {"azimuth": 0,   "elevation": -89, "label": "Ventral"},
+            "deep_ghosted":   {"azimuth": 70,  "elevation": 20, "label": "Deep structures (ghosted)"},
+            "deep_only":      {"azimuth": 70,  "elevation": 20, "label": "Deep structures (isolated)", "hide_dim": True},
+            "lateral_left":   {"azimuth": -90, "elevation": 5,  "label": "Lateral (left)"},
+        }
     }
 }
 
